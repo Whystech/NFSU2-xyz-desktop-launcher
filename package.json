@@ -1,0 +1,22 @@
+{
+  "name": "electron-nfsu2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nfsu2.js",
+ "scripts": {
+  "start": "electron .",
+  "dist:win:portable": "electron-builder --win portable --x64"
+},
+"build": {
+  "appId": "com.whys.nfsu2desktop",
+  "productName": "NFSU2 Desktop"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^45.3.3",
+    "electron-builder": "^26.18.0"
+  }
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NFSU2 Desktop</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: #101216;
+      color: #f3f4f6;
+    }
+    main {
+      width: min(560px, calc(100% - 40px));
+      padding: 32px;
+      border: 1px solid #343943;
+      border-radius: 16px;
+      background: #191c22;
+      box-sizing: border-box;
+    }
+    h1 { margin-top: 0; }
+    p { line-height: 1.6; color: #c5c9d1; }
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: #c8f088;
+      color: #151812;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .notice {
+      padding: 12px;
+      border-radius: 8px;
+      background: #282d36;
+    }
+    [hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>NFSU2 Desktop</h1>
+    <p id="load-error" class="notice" role="status" hidden></p>
+
+    <p>
+      To download or update offline assets, open the site while online
+      and use its <strong>Download all assets</strong> option.
+    </p>
+    <p>
+      This launcher can’t verify whether all offline assets are present.
+      After downloading, close and reopen the app offline to test.
+    </p>
+
+    <a class="button" href="https://nfsu2.xyz/">Open nfsu2.xyz</a>
+    <p>Downloaded site data is stored in the <code>nfsu2-data</code> folder beside the app.</p>
+  </main>
+
+  <script>
+    if (new URLSearchParams(location.search).has("siteLoadFailed")) {
+      const notice = document.getElementById("load-error");
+      notice.textContent =
+        "The site could not be opened. This does not tell us whether offline assets are complete.";
+      notice.hidden = false;
+    }
+  </script>
+</body>
+</html>
